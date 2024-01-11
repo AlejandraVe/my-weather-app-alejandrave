@@ -28,3 +28,9 @@ p {
   border-radius: 20px;
   border: none;
 }
+
+.submit-button {
+  background-color: #ffdbc7;
+  border: none;
+  font-size: 20px;
+}
