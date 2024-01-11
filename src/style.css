@@ -40,6 +40,15 @@ header {
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
 
+.today-details {
+  display: flex;
+  justify-content: space-between;
+  background-color: #ffece2;
+  padding: 7%;
+  border-radius: 20px;
+  box-shadow: 2px 2px 5px rgba(39, 33, 66, 0.4);
+}
+
 p {
   color: rgba(39, 33, 66, 0.4);
 }
