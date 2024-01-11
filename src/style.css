@@ -47,10 +47,29 @@ header {
   padding: 7%;
   border-radius: 20px;
   box-shadow: 2px 2px 5px rgba(39, 33, 66, 0.4);
+  color: rgba(39, 33, 66, 0.4);
 }
 
-p {
-  color: rgba(39, 33, 66, 0.4);
+.today-details strong {
+  color: coral;
+}
+
+.todays-temperature {
+  display: flex;
+}
+
+.weather-app-emoji {
+  font-size: 70px;
+}
+
+.weather-app-celsius {
+  font-size: 30px;
+  margin-top: 15px;
+}
+
+.wind-and-humidity {
+  margin-top: 25px;
+  font-size: 18px;
 }
 
 footer {
