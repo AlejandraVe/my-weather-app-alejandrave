@@ -23,6 +23,7 @@ header {
   width: 90%;
   border-radius: 20px;
   border: none;
+  box-shadow: 2px 2px 5px rgba(39, 33, 66, 0.4);
 }
 
 .submit-button {
