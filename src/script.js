@@ -9,6 +9,13 @@ function updateCityAndWeather(response) {
   let currentTime = document.querySelector("#current-time");
   let date = new Date(response.data.time * 1000);
   let icon = document.querySelector("#emoji");
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+  let tomorrowElement = document.querySelector("#tomorrow");
+  let twoDaysAhead = document.querySelector("#two-days-ahead");
+  let threeDaysAhead = document.querySelector("#three-days-ahead");
+  let fourDaysAhead = document.querySelector("#four-days-ahead");
+  let fiveDaysAhead = document.querySelector("#five-days-ahead");
+  let sixDaysAhead = document.querySelector("#six-days-ahead");
 
   cityElement.innerHTML = response.data.city;
   todaysWeather.innerHTML = Math.round(responseTemperature);
@@ -18,7 +25,17 @@ function updateCityAndWeather(response) {
   wind.innerHTML = response.data.wind.speed;
   currentTime.innerHTML = formatDate(date);
   icon.innerHTML = `<img src="${response.data.condition.icon_url}" class="emoji">`;
+  tomorrowElement.innerHTML = days[date.getDay() + 1];
+  twoDaysAhead.innerHTML = days[date.getDay() + 2];
+  threeDaysAhead.innerHTML = days[date.getDay() + 3];
+  fourDaysAhead.innerHTML = days[date.getDay() + 4];
+  fiveDaysAhead.innerHTML = days[date.getDay() + 5];
+  sixDaysAhead.innerHTML = days[date.getDay() + 6];
 }
+
+function updateForecast(response) {}
+
+function formatForecastDates(date) {}
 
 function formatDate(date) {
   let minutes = date.getMinutes();
@@ -48,11 +65,18 @@ function searchCity(city) {
   axios.get(apiUrl).then(updateCityAndWeather);
 }
 
+function forecast(city) {
+  let apiKeyForecast = "131b90447daa3e3cfco5aa3tc6e2b482";
+  let apiUrlForecast = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKeyForecast}`;
+  axios.get(apiUrlForecast).then(updateForecast);
+}
+
 function changeCity(event) {
   event.preventDefault();
   let searchInputElement = document.querySelector("#search-input");
 
   searchCity(searchInputElement.value);
+  forecast(searchInputElement.value);
 }
 
 let searchInput = document.querySelector("#search-form");
