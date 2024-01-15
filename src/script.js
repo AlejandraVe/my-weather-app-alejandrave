@@ -46,6 +46,12 @@ function updateForecast(response) {
     "#temperature-five-days"
   );
   let sixDaysAheadTemperature = document.querySelector("#temperature-six-days");
+  let iconTomorrow = document.querySelector("#icon-tomorrow");
+  let iconTwoDays = document.querySelector("#icon-two-days");
+  let iconThreeDays = document.querySelector("#icon-three-days");
+  let iconFourDays = document.querySelector("#icon-four-days");
+  let iconFiveDays = document.querySelector("#icon-five-days");
+  let iconSixDays = document.querySelector("#icon-six-days");
 
   tomorrowsTemperature.innerHTML = Math.round(
     response.data.daily[0].temperature.day
@@ -65,7 +71,13 @@ function updateForecast(response) {
   sixDaysAheadTemperature.innerHTML = Math.round(
     response.data.daily[5].temperature.day
   );
-}
+  iconTomorrow.innerHTML = `<img src="${response.data.daily[0].condition.icon_url}" class="smaller-emojis">`;
+  iconTwoDays.innerHTML = `<img src="${response.data.daily[1].condition.icon_url}" class="smaller-emojis">`;
+  iconThreeDays.innerHTML = `<img src="${response.data.daily[2].condition.icon_url}" class="smaller-emojis">`;
+  iconFourDays.innerHTML = `<img src="${response.data.daily[3].condition.icon_url}" class="smaller-emojis">`;
+  iconFiveDays.innerHTML = `<img src="${response.data.daily[4].condition.icon_url}" class="smaller-emojis">`;
+  iconSixDays.innerHTML = `<img src="${response.data.daily[5].condition.icon_url}" class="smaller-emojis">`;
+  }
 
 function formatDate(date) {
   let minutes = date.getMinutes();
