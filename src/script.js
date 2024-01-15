@@ -2,9 +2,11 @@ function updateCityAndWeather(response) {
   let todaysWeather = document.querySelector("#temperature-unit");
   let responseTemperature = response.data.temperature.current;
   let cityElement = document.querySelector("#city-element");
+  let countryElement = document.querySelector("#country");
 
   cityElement.innerHTML = response.data.city;
   todaysWeather.innerHTML = Math.round(responseTemperature);
+  countryElement.innerHTML = response.data.country;
 }
 
 function searchCity(city) {

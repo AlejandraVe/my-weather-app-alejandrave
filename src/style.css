@@ -51,6 +51,11 @@ header {
   color: rgba(39, 33, 66, 0.4);
 }
 
+.country {
+  font-size: 15px;
+  font-weight: 400;
+}
+
 .today-details strong {
   color: coral;
 }
