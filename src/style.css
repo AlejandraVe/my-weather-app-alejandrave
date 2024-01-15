@@ -43,7 +43,7 @@ header {
 
 .today-details {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   background-color: #ffece2;
   padding: 7%;
   border-radius: 20px;
