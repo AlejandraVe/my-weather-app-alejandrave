@@ -70,7 +70,8 @@ header {
 }
 
 .weather-app-unit {
-  font-size: 70px;
+  font-size: 50px;
+  padding-top: 30px;
 }
 
 .weather-app-celsius {
