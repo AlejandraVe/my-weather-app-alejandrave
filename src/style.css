@@ -64,13 +64,18 @@ header {
   display: flex;
 }
 
+.emoji {
+  width: 80px;
+  margin-top: 20px;
+}
+
 .weather-app-unit {
   font-size: 70px;
 }
 
 .weather-app-celsius {
   font-size: 30px;
-  margin-top: 15px;
+  margin-top: 40px;
 }
 
 .wind-and-humidity {
