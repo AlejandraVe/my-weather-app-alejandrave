@@ -10,7 +10,7 @@ function updateCityAndWeather(response) {
   cityElement.innerHTML = response.data.city;
   todaysWeather.innerHTML = Math.round(responseTemperature);
   countryElement.innerHTML = response.data.country;
-  description.innerHTML = response.data.condition.description;
+  description.innerHTML = toUpperCase(response.data.condition.description);
   humidity.innerHTML = response.data.temperature.humidity;
   wind.innerHTML = response.data.wind.speed;
 }
