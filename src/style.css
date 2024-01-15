@@ -45,7 +45,7 @@ header {
   display: flex;
   justify-content: space-around;
   background-color: #ffece2;
-  padding: 7%;
+  padding: 5%;
   border-radius: 20px;
   box-shadow: 2px 2px 5px rgba(39, 33, 66, 0.4);
   color: rgba(39, 33, 66, 0.4);
@@ -65,12 +65,12 @@ header {
 }
 
 .emoji {
-  width: 80px;
-  margin-top: 20px;
+  width: 100px;
+  margin-top: 28px;
 }
 
 .weather-app-unit {
-  font-size: 50px;
+  font-size: 70px;
   padding-top: 30px;
 }
 
@@ -80,7 +80,7 @@ header {
 }
 
 .wind-and-humidity {
-  margin-top: 25px;
+  margin-top: 40px;
   font-size: 18px;
 }
 
