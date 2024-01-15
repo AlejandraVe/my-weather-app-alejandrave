@@ -77,7 +77,7 @@ function updateForecast(response) {
   iconFourDays.innerHTML = `<img src="${response.data.daily[3].condition.icon_url}" class="smaller-emojis">`;
   iconFiveDays.innerHTML = `<img src="${response.data.daily[4].condition.icon_url}" class="smaller-emojis">`;
   iconSixDays.innerHTML = `<img src="${response.data.daily[5].condition.icon_url}" class="smaller-emojis">`;
-  }
+}
 
 function formatDate(date) {
   let minutes = date.getMinutes();
