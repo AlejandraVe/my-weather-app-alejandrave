@@ -33,9 +33,39 @@ function updateCityAndWeather(response) {
   sixDaysAhead.innerHTML = days[date.getDay() + 6];
 }
 
-function updateForecast(response) {}
+function updateForecast(response) {
+  let tomorrowsTemperature = document.querySelector("#temperature-tomorrow");
+  let twoDaysAheadTemperature = document.querySelector("#temperature-two-days");
+  let threeDaysAheadTemperature = document.querySelector(
+    "#temperature-three-days"
+  );
+  let fourDaysAheadTemperature = document.querySelector(
+    "#temperature-four-days"
+  );
+  let fiveDaysAheadTemperature = document.querySelector(
+    "#temperature-five-days"
+  );
+  let sixDaysAheadTemperature = document.querySelector("#temperature-six-days");
 
-function formatForecastDates(date) {}
+  tomorrowsTemperature.innerHTML = Math.round(
+    response.data.daily[0].temperature.day
+  );
+  twoDaysAheadTemperature.innerHTML = Math.round(
+    response.data.daily[1].temperature.day
+  );
+  threeDaysAheadTemperature.innerHTML = Math.round(
+    response.data.daily[2].temperature.day
+  );
+  fourDaysAheadTemperature.innerHTML = Math.round(
+    response.data.daily[3].temperature.day
+  );
+  fiveDaysAheadTemperature.innerHTML = Math.round(
+    response.data.daily[4].temperature.day
+  );
+  sixDaysAheadTemperature.innerHTML = Math.round(
+    response.data.daily[5].temperature.day
+  );
+}
 
 function formatDate(date) {
   let minutes = date.getMinutes();
@@ -83,3 +113,4 @@ let searchInput = document.querySelector("#search-form");
 searchInput.addEventListener("submit", changeCity);
 
 searchCity("London");
+forecast("London");
