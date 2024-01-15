@@ -106,6 +106,10 @@ header {
   text-align: center;
 }
 
+.smaller-emojis {
+  width: 40px;
+}
+
 footer {
   border-top: 1px solid gray;
   padding: 2% 0% 0% 0%;
