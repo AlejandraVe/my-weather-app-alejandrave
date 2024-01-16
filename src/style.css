@@ -56,7 +56,8 @@ header {
   font-weight: 400;
 }
 
-.today-details strong {
+strong,
+.coral {
   color: coral;
 }
 
