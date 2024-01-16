@@ -67,8 +67,8 @@ strong,
 }
 
 .emoji {
-  width: 100px;
-  margin-top: 28px;
+  width: 120px;
+  margin-top: 18px;
 }
 
 .weather-app-unit {
@@ -92,25 +92,27 @@ strong,
   color: rgba(39, 33, 66, 0.4);
   list-style-type: none;
   padding: 0px;
-  font-size: 20px;
+  font-size: 22px;
 }
 
-.one-day-ahead {
-  background-color: #ffece2;
-  padding: 5% 4%;
+.forecast-elements {
+  padding: 5px 15px 5px 15px;
   margin: 30px 0px 30px 0px;
-  border-radius: 10px;
-  box-shadow: 2px 2px 5px rgba(39, 33, 66, 0.4);
   text-align: center;
+  border-radius: 20px;
 }
 
-.one-day-ahead:hover {
-  background-color: #fae0d1;
+.forecast-details {
+  font-size: 15px;
+}
+
+.forecast-elements:hover {
+  background-color: #ffece2;
 }
 
 .forecast {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 footer {
