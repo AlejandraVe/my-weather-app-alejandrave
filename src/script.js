@@ -83,10 +83,10 @@ function displayForecast(response) {
   <div class="one-day-ahead">
     <div>${formatDay(day.time)}</div>
     <div> <img src="${day.condition.icon_url}" width="60px"/></div>
-    <div>
+    <div class="forecast">
       <strong><span>${Math.round(
         day.temperature.maximum
-      )}</span>°</strong>     <span class="coral">${Math.round(
+      )}</span>°</strong><span class="coral">${Math.round(
           day.temperature.minimum
         )}°</span>
     </div>

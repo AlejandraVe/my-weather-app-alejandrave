@@ -19,17 +19,18 @@ header {
 }
 
 .search-box {
-  padding: 10px;
+  padding: 15px;
   width: 90%;
-  border-radius: 20px;
+  border-radius: 30px;
   border: none;
   box-shadow: 2px 2px 5px rgba(39, 33, 66, 0.4);
+  font-size: 18px;
 }
 
 .submit-button {
   background-color: #ffdbc7;
   border: none;
-  font-size: 20px;
+  font-size: 23px;
 }
 
 .submit-button:hover {
@@ -82,7 +83,7 @@ strong,
 
 .wind-and-humidity {
   margin-top: 40px;
-  font-size: 18px;
+  font-size: 20px;
 }
 
 .next-days {
@@ -91,12 +92,12 @@ strong,
   color: rgba(39, 33, 66, 0.4);
   list-style-type: none;
   padding: 0px;
-  font-size: 17px;
+  font-size: 20px;
 }
 
 .one-day-ahead {
   background-color: #ffece2;
-  padding: 20px 10px;
+  padding: 5% 4%;
   margin: 30px 0px 30px 0px;
   border-radius: 10px;
   box-shadow: 2px 2px 5px rgba(39, 33, 66, 0.4);
@@ -105,6 +106,11 @@ strong,
 
 .one-day-ahead:hover {
   background-color: #fae0d1;
+}
+
+.forecast {
+  display: flex;
+  justify-content: space-between;
 }
 
 footer {
