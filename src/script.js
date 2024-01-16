@@ -9,13 +9,6 @@ function updateCityAndWeather(response) {
   let currentTime = document.querySelector("#current-time");
   let date = new Date(response.data.time * 1000);
   let icon = document.querySelector("#emoji");
-  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
-  let tomorrowElement = document.querySelector("#tomorrow");
-  let twoDaysAhead = document.querySelector("#two-days-ahead");
-  let threeDaysAhead = document.querySelector("#three-days-ahead");
-  let fourDaysAhead = document.querySelector("#four-days-ahead");
-  let fiveDaysAhead = document.querySelector("#five-days-ahead");
-  let sixDaysAhead = document.querySelector("#six-days-ahead");
 
   cityElement.innerHTML = response.data.city;
   todaysWeather.innerHTML = Math.round(responseTemperature);
@@ -25,58 +18,6 @@ function updateCityAndWeather(response) {
   wind.innerHTML = response.data.wind.speed;
   currentTime.innerHTML = formatDate(date);
   icon.innerHTML = `<img src="${response.data.condition.icon_url}" class="emoji">`;
-  tomorrowElement.innerHTML = days[date.getDay() + 1];
-  twoDaysAhead.innerHTML = days[date.getDay() + 2];
-  threeDaysAhead.innerHTML = days[date.getDay() + 3];
-  fourDaysAhead.innerHTML = days[date.getDay() + 4];
-  fiveDaysAhead.innerHTML = days[date.getDay() + 5];
-  sixDaysAhead.innerHTML = days[date.getDay() + 6];
-}
-
-function updateForecast(response) {
-  let tomorrowsTemperature = document.querySelector("#temperature-tomorrow");
-  let twoDaysAheadTemperature = document.querySelector("#temperature-two-days");
-  let threeDaysAheadTemperature = document.querySelector(
-    "#temperature-three-days"
-  );
-  let fourDaysAheadTemperature = document.querySelector(
-    "#temperature-four-days"
-  );
-  let fiveDaysAheadTemperature = document.querySelector(
-    "#temperature-five-days"
-  );
-  let sixDaysAheadTemperature = document.querySelector("#temperature-six-days");
-  let iconTomorrow = document.querySelector("#icon-tomorrow");
-  let iconTwoDays = document.querySelector("#icon-two-days");
-  let iconThreeDays = document.querySelector("#icon-three-days");
-  let iconFourDays = document.querySelector("#icon-four-days");
-  let iconFiveDays = document.querySelector("#icon-five-days");
-  let iconSixDays = document.querySelector("#icon-six-days");
-
-  tomorrowsTemperature.innerHTML = Math.round(
-    response.data.daily[0].temperature.day
-  );
-  twoDaysAheadTemperature.innerHTML = Math.round(
-    response.data.daily[1].temperature.day
-  );
-  threeDaysAheadTemperature.innerHTML = Math.round(
-    response.data.daily[2].temperature.day
-  );
-  fourDaysAheadTemperature.innerHTML = Math.round(
-    response.data.daily[3].temperature.day
-  );
-  fiveDaysAheadTemperature.innerHTML = Math.round(
-    response.data.daily[4].temperature.day
-  );
-  sixDaysAheadTemperature.innerHTML = Math.round(
-    response.data.daily[5].temperature.day
-  );
-  iconTomorrow.innerHTML = `<img src="${response.data.daily[0].condition.icon_url}" class="smaller-emojis">`;
-  iconTwoDays.innerHTML = `<img src="${response.data.daily[1].condition.icon_url}" class="smaller-emojis">`;
-  iconThreeDays.innerHTML = `<img src="${response.data.daily[2].condition.icon_url}" class="smaller-emojis">`;
-  iconFourDays.innerHTML = `<img src="${response.data.daily[3].condition.icon_url}" class="smaller-emojis">`;
-  iconFiveDays.innerHTML = `<img src="${response.data.daily[4].condition.icon_url}" class="smaller-emojis">`;
-  iconSixDays.innerHTML = `<img src="${response.data.daily[5].condition.icon_url}" class="smaller-emojis">`;
 }
 
 function formatDate(date) {
@@ -107,11 +48,11 @@ function searchCity(city) {
   axios.get(apiUrl).then(updateCityAndWeather);
 }
 
-function forecast(city) {
-  let apiKeyForecast = "131b90447daa3e3cfco5aa3tc6e2b482";
-  let apiUrlForecast = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKeyForecast}`;
-  axios.get(apiUrlForecast).then(updateForecast);
-}
+// function forecast(city) {
+//  let apiKeyForecast = "131b90447daa3e3cfco5aa3tc6e2b482";
+//  let apiUrlForecast = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKeyForecast}`;
+// axios.get(apiUrlForecast).then(updateForecast);
+// }
 
 function changeCity(event) {
   event.preventDefault();
@@ -121,8 +62,29 @@ function changeCity(event) {
   forecast(searchInputElement.value);
 }
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#weather-forecast");
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+  let forecastHtml = "";
+
+  days.forEach(function (day) {
+    forecastHtml =
+      forecastHtml +
+      `
+  <div class="one-day-ahead">
+    <div id="tomorrow">${day}</div>
+    <div id="icon-tomorrow"></div>
+    <div>
+      <span>14</span>°<span id="temperature-tomorrow">20</span>°
+    </div>
+  </div>`;
+  });
+
+  forecastElement.innerHTML = forecastHtml;
+}
+
 let searchInput = document.querySelector("#search-form");
 searchInput.addEventListener("submit", changeCity);
 
 searchCity("London");
-forecast("London");
+displayForecast();
