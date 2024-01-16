@@ -64,6 +64,13 @@ function getForecast(city) {
   axios.get(apiUrlForecast).then(displayForecast);
 }
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+
+  return days[date.getDay()];
+}
+
 function displayForecast(response) {
   let forecastElement = document.querySelector("#weather-forecast");
   let forecastHtml = "";
@@ -74,7 +81,7 @@ function displayForecast(response) {
         forecastHtml +
         `
   <div class="one-day-ahead">
-    <div id="tomorrow">Tue</div>
+    <div>${formatDay(day.time)}</div>
     <div> <img src="${day.condition.icon_url}" width="60px"/></div>
     <div>
       <strong><span>${Math.round(
