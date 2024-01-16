@@ -93,17 +93,18 @@ header {
   font-size: 17px;
 }
 
-.one-day-ahead,
-.two-days-ahead,
-.three-days-ahead,
-.four-days-ahead,
-.five-days-ahead,
-.six-days-ahead {
+.one-day-ahead {
   background-color: #ffece2;
-  padding: 4.5%;
+  padding: 20px 10px;
+  margin: 30px 0px 30px 0px;
   border-radius: 10px;
   box-shadow: 2px 2px 5px rgba(39, 33, 66, 0.4);
   text-align: center;
+}
+
+.one-day-ahead:hover {
+  background-color: #fae0d1;
+  cursor: pointer;
 }
 
 .smaller-emojis {
